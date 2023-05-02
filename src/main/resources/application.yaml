@@ -1,0 +1,41 @@
+spring:
+  jpa:
+    show-sql: true
+    open-in-view: false
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 20
+        jdbc.batch_size: 20
+        spring.jpa.defer-datasource-initialization: true
+  datasource:
+    url: jdbc:h2:mem:voting
+    username: sa
+    password:
+
+  jackson.visibility:
+    field: any
+    getter: none
+    setter: none
+    is-getter: none
+
+  cache:
+    cache-names: restaurants
+    caffeine.spec: maximumSize=1,expireAfterAccess=600s
+
+logging:
+  level:
+    root: INFO
+    ru.java-ops.final-task: DEBUG
+    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG
+
+server.servlet:
+  encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+
+springdoc.swagger-ui.path: /
